@@ -21,7 +21,7 @@ def ping():
     port = request.environ.get('REMOTE_PORT')
     logging.info("The IP addess is of raspberry pi is : {}".format(ip))
     logging.info({'ip': ip, 'ip2': ip2, 'port': port})
-    request.post("http://{}:{}".format(ip2, port))
+    requests.post("http://{}:{}".format(ip2, port))
     return jsonify({'ip': ip, 'ip2': ip2, 'port': port}), 200
 
 
@@ -32,5 +32,11 @@ def ack():
     return jsonify({'ip': ip}), 200
 
 
+@app.route('/test')
+def test():
+    a = requests.get("https://raspberrypi-switch.herokuapp.com/ping")
+    return "sent"
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", debug=True)
