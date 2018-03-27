@@ -19,9 +19,10 @@ def ping():
     ip = request.remote_addr
     ip2 = request.environ['REMOTE_ADDR']
     port = request.environ.get('REMOTE_PORT')
+    ip3 = request.headers.getlist("X-Forwarded-For")
     logging.info("The IP addess is of raspberry pi is : {}".format(ip))
-    logging.info({'ip': ip, 'ip2': ip2, 'port': port})
-    requests.post("http://{}:{}".format(ip2, port))
+    logging.info({'ip': ip, 'ip2': ip2, 'port': port, 'ip3': ip3})
+    # requests.post("http://{}:{}".format(ip2, port))
     return jsonify({'ip': ip, 'ip2': ip2, 'port': port}), 200
 
 
