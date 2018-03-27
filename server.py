@@ -22,5 +22,12 @@ def ping():
     return jsonify({'ip': ip}), 200
 
 
+@app.route('/ping', methods=["POST"])
+def ack():
+    ip = request.remote_addr
+    logging.info("ACK my ip address is : {}".format(ip))
+    return jsonify({'ip': ip}), 200
+
+
 if __name__ == '__main__':
     app.run(debug=True)
