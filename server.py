@@ -17,12 +17,10 @@ def index():
 @app.route('/ping', methods=["GET"])
 def ping():
     ip = request.remote_addr
+    ip2 = request.environ['REMOTE_ADDR']
+    port = request.environ.get('REMOTE_PORT')
     logging.info("The IP addess is of raspberry pi is : {}".format(ip))
-    try:
-        requests.post("http://{}:8000/ping".format(ip))
-    except Exception as e:
-        logging.warn(e)
-    return jsonify({'ip': ip}), 200
+    return jsonify({'ip': ip, 'ip2': ip2, 'port': port}), 200
 
 
 @app.route('/ping', methods=["POST"])
