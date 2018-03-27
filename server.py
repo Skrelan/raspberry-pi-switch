@@ -18,7 +18,10 @@ def index():
 def ping():
     ip = request.remote_addr
     logging.info("The IP addess is of raspberry pi is : {}".format(ip))
-    requests.post(ip + ":5000/ping")
+    try:
+        requests.post("http://{}:8000/ping".format(ip))
+    except Exception as e:
+        logging.warn(e)
     return jsonify({'ip': ip}), 200
 
 
