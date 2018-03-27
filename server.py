@@ -20,10 +20,12 @@ def ping():
     ip2 = request.environ['REMOTE_ADDR']
     port = request.environ.get('REMOTE_PORT')
     logging.info("The IP addess is of raspberry pi is : {}".format(ip))
+    logging.info({'ip': ip, 'ip2': ip2, 'port': port})
+    request.post("http://{}:{}".format(ip2, port))
     return jsonify({'ip': ip, 'ip2': ip2, 'port': port}), 200
 
 
-@app.route('/ping', methods=["POST"])
+@app.route('/', methods=["POST"])
 def ack():
     ip = request.remote_addr
     logging.info("ACK my ip address is : {}".format(ip))
