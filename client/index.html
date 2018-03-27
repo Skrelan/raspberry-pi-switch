@@ -1,0 +1,56 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Raspberry-pi switch</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <style>
+  body {
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/6/69/Raspberries05.jpg");
+        background-position: center center;
+    }
+  #main{
+    background: -webkit-linear-gradient(top, #FFFFFF 0.0%, #FFDDAA 100.0%) no-repeat;
+    border: 3px solid#333;
+    height: 750px;
+    padding: 50px;
+  }
+  h1{
+      font-family: cursive;
+      font-size: 36px;
+    }
+    p{
+     font-family: sans-serif;
+     font-size: 14px;
+     }
+
+     span{
+     font-size: 18px;
+     }
+
+    .img-thumbnail{
+        object-fit: cover;
+        width: 140px;
+        height: 140px;
+        background-position: 50% 40%;
+        background-repeat: no-repeat;
+  }
+  </style>
+</head>
+
+<body>
+  <div id="main" class="col-md-8 col-md-offset-2">
+    <div id="container" align = "center">
+        <span>User Name : </span> <input type="text" placeholder="user-name"></input>
+        <br>
+        <span>Password  : </span><input type="text" ref="comment" placeholder="password"></input>
+        <br>
+        <button class="btn btn-primary">login</button>
+    </div>
+  </div>
+</body>
+</html>
