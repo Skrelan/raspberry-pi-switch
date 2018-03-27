@@ -18,7 +18,7 @@ def index():
 def ping():
     ip = request.remote_addr
     logging.info("The IP addess is of raspberry pi is : {}".format(ip))
-    # requests.post(ip+"/5000")
+    requests.post(ip + ":5000/ping")
     return jsonify({'ip': ip}), 200
 
 
